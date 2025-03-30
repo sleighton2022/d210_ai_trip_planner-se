@@ -1,0 +1,23 @@
+"Provide me with an itinerary with the following optimization options and user preferences. default_opts = OptimizationOptions(
+    by_weather=True,
+    by_traffic=True,
+    by_family_friendly=False,
+    by_safety=True,
+    by_cost=False,
+    min_rating=4.0 # Example: only higher rated places
+)
+
+# List of different UserPreference scenarios
+# (Consider moving this list to a shared config file/module)
+EXAMPLE_INPUTS = [
+ {
+        "filename_suffix": "sf_history_parks_family",
+        "prefs": UserPreference(
+            destination='San Francisco, CA',
+            start_date= April 17, 2025,
+            end_date= April 19, 2025, # Shorter trip
+            interests=['historical landmarks', 'parks', 'views'],
+            hotel_location='Fisherman\'s Wharf, San Francisco, CA',
+            optimization_options=default_opts.model_copy(update={"by_family_friendly": True, "min_rating": 0.0}) # Family friendly override
+        )
+    }"

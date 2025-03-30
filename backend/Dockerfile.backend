@@ -1,0 +1,72 @@
+# Dockerfile located in ./backend/Dockerfile.backend
+# Build context should be the project root directory
+
+# Base Arguments
+ARG APP_DIR=/app
+ARG COMMON_DIR=common     # Relative path from project root
+ARG BACKEND_DIR=backend   # Relative path from project root
+ARG AGENTS_DIR=agents     # Relative path from project root (if needed at runtime)
+
+#############
+# Build image
+#############
+FROM python:3.11-slim AS build
+ARG APP_DIR
+ARG BACKEND_DIR 
+
+
+# Install curl, build tools, poetry
+RUN apt-get update && apt-get install -y \
+    curl build-essential libffi-dev \
+    && rm -rf /var/lib/apt/lists/*
+ENV POETRY_VERSION=2.1.1
+RUN curl -sSL https://install.python-poetry.org | python -
+ENV PATH /root/.local/bin:$PATH
+
+# Set work directory for dependency installation
+WORKDIR ${APP_DIR}
+
+# --- Use the ROOT pyproject.toml and poetry.lock ---
+# Source paths are relative to the build context (project root)
+COPY ${BACKEND_DIR}/pyproject.toml ${BACKEND_DIR}/poetry.lock ./
+
+# Create and install dependencies into the venv using the ROOT files
+RUN python -m venv --copies ${APP_DIR}/venv
+RUN . ${APP_DIR}/venv/bin/activate && poetry install --no-root --only main
+
+#############
+# Deployment image
+#############
+FROM python:3.11-slim as prod
+ARG APP_DIR
+ARG COMMON_DIR
+ARG BACKEND_DIR
+ARG AGENTS_DIR
+
+# Copy the virtual environment from the build stage
+COPY --from=build ${APP_DIR}/venv ${APP_DIR}/venv/
+ENV PATH ${APP_DIR}/venv/bin:$PATH
+
+WORKDIR ${APP_DIR}
+
+# --- Copy only necessary directories ---
+# Copy the common directory
+COPY ${COMMON_DIR} ${APP_DIR}/${COMMON_DIR}
+
+# Copy the backend source code
+COPY ${BACKEND_DIR} ${APP_DIR}/${BACKEND_DIR}
+
+COPY ${AGENTS_DIR}/src ${APP_DIR}/${AGENTS_DIR}/src
+
+COPY ${AGENTS_DIR}/data ${APP_DIR}/${AGENTS_DIR}/data
+
+
+# Copy the .env file
+COPY .env ${APP_DIR}/.env
+
+# Expose the backend port
+EXPOSE 8000
+
+# Command to run Uvicorn
+CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
+

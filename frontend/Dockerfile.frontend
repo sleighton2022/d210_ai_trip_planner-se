@@ -1,0 +1,63 @@
+# Base Arguments
+ARG APP_DIR=/app
+ARG FRONTEND_DIR=frontend # Define where frontend source is relative to root
+ARG COMMON_DIR=common     # Define where common source is relative to root
+
+#############
+# Build image
+#############
+FROM python:3.11-slim AS build
+ARG APP_DIR
+ARG FRONTEND_DIR
+
+# Install curl, build tools (if needed by dependencies)
+RUN apt-get update && apt-get install -y \
+    curl build-essential libffi-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install poetry
+ENV POETRY_VERSION=2.1.1 
+RUN curl -sSL https://install.python-poetry.org | python -
+ENV PATH /root/.local/bin:$PATH
+
+# Set work directory for dependency installation
+WORKDIR ${APP_DIR}
+
+# Copy only the pyproject.toml and poetry.lock for the frontend
+COPY ${FRONTEND_DIR}/pyproject.toml ${FRONTEND_DIR}/poetry.lock ./
+
+# Create and install dependencies into the venv
+RUN python -m venv --copies ${APP_DIR}/venv
+# Ensure poetry uses the copied files for install
+RUN . ${APP_DIR}/venv/bin/activate && poetry install --no-root --only main
+
+#############
+# Deployment image
+#############
+FROM python:3.11-slim as prod
+ARG APP_DIR
+ARG FRONTEND_DIR
+ARG COMMON_DIR
+
+# Copy the virtual environment from the build stage
+COPY --from=build ${APP_DIR}/venv ${APP_DIR}/venv/
+ENV PATH ${APP_DIR}/venv/bin:$PATH
+
+WORKDIR ${APP_DIR}
+
+# Copy the common directory from the build context
+COPY ${COMMON_DIR} ${APP_DIR}/${COMMON_DIR}
+
+# Copy the frontend source code from the build context
+COPY ${FRONTEND_DIR}/src ${APP_DIR}/${FRONTEND_DIR}/src
+# Add any other files/dirs needed by frontend (e.g., assets)
+# COPY ${FRONTEND_DIR}/assets ${APP_DIR}/${FRONTEND_DIR}/assets
+
+# Ensure Streamlit uses the correct working directory if needed,
+# Although running from /app should be fine if paths inside main.py are correct.
+
+# Expose Streamlit port
+EXPOSE 8501
+
+# Command to run Streamlit (adjust path to main.py)
+CMD ["streamlit", "run", "frontend/src/main.py", "--server.port=8501", "--server.address=0.0.0.0"]

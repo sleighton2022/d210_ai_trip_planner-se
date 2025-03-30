@@ -1,0 +1,69 @@
+{
+    "user_preference": {
+      "destination": "Los Angeles, CA",
+      "start_date": "02-15-2025",
+      "end_date": "02-20-2025",
+      "interests": [
+        "museums",
+        "beaches"
+      ],
+      "hotel_location": "West Covina, CA"
+    },
+    "activities": [
+      {
+        "name": "Natural History Museum of Los Angeles County",
+        "location": "900 W Exposition Blvd, Los Angeles, CA 90007",
+        "description": "Explore the wonders of the natural world with engaging exhibits on dinosaurs, rare gems, and the history of California.",
+        "why_its_suitable": "A perfect place for families with children, combining fun and learning, with interactive exhibits that cater to various age groups.",
+        "reviews": [
+          "Incredible exhibits and engaging for my kids! Highly recommend!",
+          "A fun and educational experience for the whole family!"
+        ],
+        "rating": 4.7
+      },
+      {
+        "name": "California Science Center",
+        "location": "700 Exposition Park Dr, Los Angeles, CA 90037",
+        "description": "A hands-on science museum featuring a range of interactive displays, including the Space Shuttle Endeavour.",
+        "why_its_suitable": "Great for families, this museum offers exciting and educational exhibits that ignite curiosity in children.",
+        "reviews": [
+          "My kids love the science exhibits! Such a fun way to learn.",
+          "The Space Shuttle Endeavour is a must-see!"
+        ],
+        "rating": 4.8
+      },
+      {
+        "name": "Santa Monica Beach",
+        "location": "Ocean Ave. & Colorado Ave. Santa Monica, CA 90401",
+        "description": "A popular beach destination with a family-friendly atmosphere, a boardwalk, and beautiful sandy shores.",
+        "why_its_suitable": "Ideal for families looking to enjoy a beach day, with ample space for play, picnicking, and swimming (depending on weather).",
+        "reviews": [
+          "Lovely beach! Great for kids and they had a blast!",
+          "The pier and beach are perfect for a family day out."
+        ],
+        "rating": 4.6
+      },
+      {
+        "name": "The Getty Center",
+        "location": "1200 Getty Center Dr, Los Angeles, CA 90049",
+        "description": "An art museum with stunning architecture, gardens, and views of Los Angeles.",
+        "why_its_suitable": "Families can enjoy art in a beautiful setting, with plenty of outdoor space for children to explore.",
+        "reviews": [
+          "Breathtaking views and incredible art collections!",
+          "Kids loved the gardens and exploring the grounds."
+        ],
+        "rating": 4.7
+      },
+      {
+        "name": "La Brea Tar Pits and Museum",
+        "location": "5801 Wilshire Blvd, Los Angeles, CA 90036",
+        "description": "Visit the site of active tar pits and the museum dedicated to prehistoric fossils and excavation.",
+        "why_its_suitable": "Interactive exhibits and real fossil digging allow kids to learn about prehistoric life in an engaging way.",
+        "reviews": [
+          "Amazing experience! My kids learned so much about dinosaurs!",
+          "The tar pits are so cool, and the museum is very informative."
+        ],
+        "rating": 4.5
+      }
+    ]
+  }

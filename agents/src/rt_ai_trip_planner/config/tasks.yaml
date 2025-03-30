@@ -1,0 +1,109 @@
+find_activity_task:
+  description: >
+    Research and find cool things to do at {destination} between {start_date} and {end_date}.
+    Focus on key attractions, fun activities, and special events that meet the following requirements:    
+    {activity_requirements}
+
+    Traveler's information:
+    - destination: {destination}
+    - hotel location: {hotel_location}
+    - interests: {interests}
+    - start_date: {start_date}
+    - end_date: {end_date}
+    - trip_duration: {trip_duration}
+    - optimization_options: {optimization_options}
+  expected_output: >
+    A list of highly recommended activities that can be completed in {trip_duration} days between {start_date} and {end_date}.
+    Each entry should include the activity name and location (address).
+
+
+find_nearby_restaurant_task:
+  description: >
+    Find highly-rated restaurants and dining experiences nearby {activity_names} in {destination}.
+    You need to find {trip_duration} days' worth of dining options, including breakfast, lunch, and dinner.
+    Use internet search tools, restaurant review sites, and travel guides.
+
+    Make sure to find a variety of options to suit different tastes and budgets that meet the following requirements:
+    * Ensure a diverse selection of cuisines and dining experiences.
+    * Include family-friendly options with a welcoming atmosphere.
+    * Prioritize highly rated and well-reviewed restaurants.
+    * Consider dietary preferences and budget if specified.
+    * Provide a mix of casual, mid-range, and upscale dining choices.
+    * Highlight local favorites and hidden gems unique to the area.
+    {restaurant_requirements}
+
+    Traveler's information:
+    - destination: {destination}
+    - hotel location: {hotel_location}
+    - interests: {interests}
+    - start_date: {start_date}
+    - end_date: {end_date}
+    - trip_duration: {trip_duration}
+    - optimization_options: {optimization_options}
+  expected_output: >    
+    Only return the list of restaurants that are near the activities provided.
+    The list must be able to cover {trip_duration} days' worth of dining options, including breakfast, lunch, and dinner.
+    Do not return itineraries or full-day plans, just a list of restaurants.
+    Each entry should include the name (restaurant name), location (restaurant address), cuisine type (e.g. Mexican, American), and category (Restaurant).
+
+
+find_weather_forecast_task:
+  description: >
+    Provide hourly weather forecast for {destination} from {start_date} to {end_date}.
+        
+  expected_output: >
+    A list of weather forecast.
+    Each weather forcast information should include forcast date, temperature, WMO Weather Code, and weather description.
+
+
+plan_activity_task:
+  description: >    
+    Compile a full {trip_duration}-day comprehensive and optimized day-by-day itinerary for the given activities.
+    The travel date is from {start_date} to {end_date} at {destination}.
+    The activity starts at 08:00 AM and ends at 10:00 PM. You need to plan activities that cover the entire day and evening for each day.
+    You need to make plans to cover as many activities as possible for each day.
+    The traveler will be staying at {hotel_location}.
+    The itinerary must integrate hotel information, and all planned activities and dining experiences.    
+
+    Response Requirements:
+    1. Daily Itinerary Structure:
+    * A detailed per-day plan including optimized routes for minimum travel time and total mileage.
+    * Balanced pacing to allow for relaxation and enjoyment.
+    * The traveler should be able to enjoy the activities without feeling rushed or overwhelmed.
+
+    2. Additional Trip Enhancements:
+    * Include a restaurant recommendations near the activity site only if the activity duration overlaps with mealtime.
+    * Packing suggestions based on planned activities.
+    {weather_requirements}
+
+    3. Route Optimization:
+    * Minimize total miles and total travel time.
+    * Logical ordering of locations to reduce backtracking and traffic delays.
+    * Assume the traveler will be using a rental car for transportation.
+    {traffic_requirements}
+  expected_output: >
+    Final Output Expectations:
+    * The itinerary should only be created based on the provided activities, restaturants, and weather information.
+    * A concise and structured {trip_duration}-day itinerary with all the above considerations.
+    * The best possible travel experience with optimized routes and efficiency while allowing time for exploration.
+    * No unnecessary filler text—just a clear, useful plan for the traveler.
+    * The itinerary consists of a list of days, each with a list of activities, details for each activity, dining suggestions, and restaurants.
+    * Each day must include a lunch restaurant near the activity site.    
+    * Each day must include a dinner restaurant near the activity site.    
+    * Each Day should include:
+      * date_of_the_day
+      * theme_of_the_day
+      * activity_details:
+        * date_time
+        * name
+        * location
+        * description
+        * why_its_suitable
+        * rating
+        * review
+        * weather_description
+        * driving_info
+      * return_to_hotel_driving_info
+      * packing_list
+    * The value of 'weather_description' must be obtained from the result retrieved by the assistant's Search Tool.
+

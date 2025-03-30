@@ -1,0 +1,406 @@
+{
+  "name": "Recommended Activities in Los Angeles, CA",
+  "user_preference": {
+    "destination": "Los Angeles, CA",
+    "start_date": "02-17-2025",
+    "end_date": "02-20-2025",
+    "interests": [
+      "Entertainment/Amusement Park",
+      "Zoo",
+      "Museum"
+    ],
+    "hotel_location": "West Covina, CA",
+    "optimization_options": {
+      "by_weather": true,
+      "by_traffic": true,
+      "by_family_friendly": true,
+      "by_safety": true,
+      "by_cost": false,
+      "min_rating": 0.0
+    }
+  },
+  "day_plans": [
+    {
+      "date_of_the_day": "02-17-2025",
+      "theme_of_the_day": "Adventure at Universal Studios",
+      "activity_details": [
+        {
+          "activity": {
+            "name": "Universal Studios Hollywood",
+            "location": "Universal Studios Hollywood, 100 Universal City Plaza, Universal City, CA 91608",
+            "latitude": 34.13812,
+            "longitude": -118.35338,
+            "category": "Entertainment/Amusement Park"
+          },
+          "date_time": "08:00 AM - 06:00 PM",
+          "weather_info": "Cloudy, 54 \u00b0F",
+          "driving_info": "30 min drive from West Covina to Universal Studios.",
+          "description": "A world-renowned theme park featuring thrilling rides, shows, and attractions based on popular movies.",
+          "category": "Entertainment/Amusement Park",
+          "why_its_suitable": "Perfect for families with kids, offering a variety of attractions for all ages.",
+          "reviews": [
+            "Amazing rides and attractions!",
+            "Great for a family day out."
+          ],
+          "rating": 4.7,
+          "cost": 120.0,
+          "average_duration": 10.0
+        },
+        {
+          "activity": {
+            "name": "Lunch at Bubba Gump Shrimp Co.",
+            "location": "100 Universal City Plaza, Universal City, CA 91608",
+            "latitude": 34.13812,
+            "longitude": -118.35338,
+            "category": "Restaurant"
+          },
+          "date_time": "12:00 PM - 1:00 PM",
+          "weather_info": "Cloudy, 54 \u00b0F",
+          "driving_info": "Located within Universal Studios.",
+          "description": "A fun seafood restaurant themed after the movie 'Forrest Gump'.",
+          "category": "Restaurant",
+          "why_its_suitable": "Family-friendly atmosphere with a diverse menu.",
+          "reviews": [
+            "Delicious shrimp dishes!",
+            "Great service."
+          ],
+          "rating": 4.5,
+          "cost": 25.0,
+          "average_duration": 1.0
+        },
+        {
+          "activity": {
+            "name": "Dinner at Three Broomsticks",
+            "location": "100 Universal City Plaza, Universal City, CA 91608",
+            "latitude": 34.13812,
+            "longitude": -118.35338,
+            "category": "Restaurant"
+          },
+          "date_time": "06:30 PM - 08:00 PM",
+          "weather_info": "Cloudy, 54 \u00b0F",
+          "driving_info": "Located within Universal Studios.",
+          "description": "A themed restaurant inspired by the Harry Potter series, offering hearty meals.",
+          "category": "Restaurant",
+          "why_its_suitable": "Unique dining experience for fans of the series.",
+          "reviews": [
+            "Great atmosphere!",
+            "Loved the butterbeer."
+          ],
+          "rating": 4.6,
+          "cost": 30.0,
+          "average_duration": 1.5
+        }
+      ],
+      "return_to_hotel_driving_info": "30 min drive back to West Covina.",
+      "packing_list": [
+        "Comfortable shoes",
+        "Sunscreen",
+        "Light jacket",
+        "Camera"
+      ]
+    },
+    {
+      "date_of_the_day": "02-18-2025",
+      "theme_of_the_day": "Exploring Museums",
+      "activity_details": [
+        {
+          "activity": {
+            "name": "California Science Center",
+            "location": "700 Exposition Park Drive, Los Angeles, CA 90037",
+            "latitude": 34.01587,
+            "longitude": -118.28611,
+            "category": "Museum"
+          },
+          "date_time": "09:00 AM - 12:00 PM",
+          "weather_info": "Sunny, 53 \u00b0F",
+          "driving_info": "40 min drive from West Covina to California Science Center.",
+          "description": "An interactive science museum featuring hands-on exhibits and an IMAX theater.",
+          "category": "Museum",
+          "why_its_suitable": "Educational and fun for kids and adults alike.",
+          "reviews": [
+            "Incredible exhibits!",
+            "Great for kids."
+          ],
+          "rating": 4.8,
+          "cost": 0.0,
+          "average_duration": 3.0
+        },
+        {
+          "activity": {
+            "name": "Lunch at California Science Center Caf\u00e9",
+            "location": "700 Exposition Park Dr, Los Angeles, CA 90037",
+            "latitude": 34.01587,
+            "longitude": -118.28611,
+            "category": "Restaurant"
+          },
+          "date_time": "12:00 PM - 1:00 PM",
+          "weather_info": "Sunny, 53 \u00b0F",
+          "driving_info": "Located within the Science Center.",
+          "description": "A casual caf\u00e9 offering a variety of healthy options.",
+          "category": "Restaurant",
+          "why_its_suitable": "Convenient dining option for museum visitors.",
+          "reviews": [
+            "Healthy and tasty options!",
+            "Quick service."
+          ],
+          "rating": 4.3,
+          "cost": 20.0,
+          "average_duration": 1.0
+        },
+        {
+          "activity": {
+            "name": "Los Angeles County Museum of Art",
+            "location": "5905 Wilshire Blvd, Los Angeles, CA 90036",
+            "latitude": 34.06393,
+            "longitude": -118.35923,
+            "category": "Museum"
+          },
+          "date_time": "01:30 PM - 04:30 PM",
+          "weather_info": "Sunny, 53 \u00b0F",
+          "driving_info": "15 min drive from California Science Center to LACMA.",
+          "description": "The largest art museum in the west, featuring a diverse collection of art.",
+          "category": "Museum",
+          "why_its_suitable": "Offers a rich cultural experience for families.",
+          "reviews": [
+            "Stunning collections!",
+            "Great for art lovers."
+          ],
+          "rating": 4.7,
+          "cost": 25.0,
+          "average_duration": 3.0
+        },
+        {
+          "activity": {
+            "name": "Dinner at Pitfire Pizza",
+            "location": "100 S. La Brea Ave, Los Angeles, CA 90036",
+            "latitude": 34.062,
+            "longitude": -118.356,
+            "category": "Restaurant"
+          },
+          "date_time": "05:00 PM - 06:30 PM",
+          "weather_info": "Sunny, 53 \u00b0F",
+          "driving_info": "10 min drive from LACMA to Pitfire Pizza.",
+          "description": "A casual eatery known for its artisanal pizzas and fresh ingredients.",
+          "category": "Restaurant",
+          "why_its_suitable": "Family-friendly with a relaxed atmosphere.",
+          "reviews": [
+            "Best pizza in town!",
+            "Great for families."
+          ],
+          "rating": 4.5,
+          "cost": 25.0,
+          "average_duration": 1.5
+        }
+      ],
+      "return_to_hotel_driving_info": "30 min drive back to West Covina.",
+      "packing_list": [
+        "Comfortable shoes",
+        "Sunscreen",
+        "Light jacket",
+        "Camera"
+      ]
+    },
+    {
+      "date_of_the_day": "02-19-2025",
+      "theme_of_the_day": "Zoo and Nature",
+      "activity_details": [
+        {
+          "activity": {
+            "name": "Los Angeles Zoo",
+            "location": "5333 Zoo Dr, Los Angeles, CA 90027",
+            "latitude": 34.14861,
+            "longitude": -118.28403,
+            "category": "Zoo"
+          },
+          "date_time": "09:00 AM - 12:00 PM",
+          "weather_info": "Mainly Sunny, 52 \u00b0F",
+          "driving_info": "30 min drive from West Covina to Los Angeles Zoo.",
+          "description": "A large zoo featuring a wide variety of animals and exhibits.",
+          "category": "Zoo",
+          "why_its_suitable": "Great for kids to learn about wildlife.",
+          "reviews": [
+            "Wonderful experience!",
+            "Great for families."
+          ],
+          "rating": 4.6,
+          "cost": 22.0,
+          "average_duration": 3.0
+        },
+        {
+          "activity": {
+            "name": "Lunch at The Caf\u00e9 at The End of The Universe",
+            "location": "2800 E Observatory Rd, Los Angeles, CA 90027",
+            "latitude": 34.11862,
+            "longitude": -118.30035,
+            "category": "Restaurant"
+          },
+          "date_time": "12:30 PM - 1:30 PM",
+          "weather_info": "Mainly Sunny, 52 \u00b0F",
+          "driving_info": "10 min drive from Los Angeles Zoo to the caf\u00e9.",
+          "description": "A casual caf\u00e9 with a unique theme, offering light meals.",
+          "category": "Restaurant",
+          "why_its_suitable": "Conveniently located near Griffith Park.",
+          "reviews": [
+            "Great coffee and snacks!",
+            "Fun atmosphere."
+          ],
+          "rating": 4.4,
+          "cost": 15.0,
+          "average_duration": 1.0
+        },
+        {
+          "activity": {
+            "name": "Griffith Observatory",
+            "location": "2800 E Observatory Rd, Los Angeles, CA 90027",
+            "latitude": 34.11862,
+            "longitude": -118.30035,
+            "category": "Museum"
+          },
+          "date_time": "02:00 PM - 05:00 PM",
+          "weather_info": "Mainly Sunny, 52 \u00b0F",
+          "driving_info": "5 min drive from the caf\u00e9 to Griffith Observatory.",
+          "description": "An iconic observatory with stunning views of the city and educational exhibits.",
+          "category": "Museum",
+          "why_its_suitable": "Educational and fun for the whole family.",
+          "reviews": [
+            "Breathtaking views!",
+            "Informative exhibits."
+          ],
+          "rating": 4.9,
+          "cost": 0.0,
+          "average_duration": 3.0
+        },
+        {
+          "activity": {
+            "name": "Dinner at The Broad Museum Caf\u00e9",
+            "location": "221 S Grand Ave, Los Angeles, CA 90012",
+            "latitude": 34.05447,
+            "longitude": -118.25056,
+            "category": "Restaurant"
+          },
+          "date_time": "06:00 PM - 07:30 PM",
+          "weather_info": "Clear, 60 \u00b0F",
+          "driving_info": "30 min drive from Griffith Observatory to The Broad.",
+          "description": "A caf\u00e9 located within The Broad Museum, offering a variety of dishes.",
+          "category": "Restaurant",
+          "why_its_suitable": "Perfect for a post-museum meal.",
+          "reviews": [
+            "Great food and ambiance!",
+            "Loved the art."
+          ],
+          "rating": 4.5,
+          "cost": 30.0,
+          "average_duration": 1.5
+        }
+      ],
+      "return_to_hotel_driving_info": "30 min drive back to West Covina.",
+      "packing_list": [
+        "Comfortable shoes",
+        "Sunscreen",
+        "Light jacket",
+        "Camera"
+      ]
+    },
+    {
+      "date_of_the_day": "02-20-2025",
+      "theme_of_the_day": "Relaxation and Fun",
+      "activity_details": [
+        {
+          "activity": {
+            "name": "Santa Monica Pier",
+            "location": "Downtown Santa Monica, Santa Monica, Los Angeles County, California, 90401, United States",
+            "latitude": 34.0,
+            "longitude": -118.5,
+            "category": "Entertainment/Amusement Park"
+          },
+          "date_time": "09:00 AM - 12:00 PM",
+          "weather_info": "Clear, 55 \u00b0F",
+          "driving_info": "45 min drive from West Covina to Santa Monica Pier.",
+          "description": "A famous pier with an amusement park, restaurants, and shops.",
+          "category": "Entertainment/Amusement Park",
+          "why_its_suitable": "Fun for the whole family with rides and games.",
+          "reviews": [
+            "Great atmosphere!",
+            "Fun rides."
+          ],
+          "rating": 4.6,
+          "cost": 10.0,
+          "average_duration": 3.0
+        },
+        {
+          "activity": {
+            "name": "Lunch at The Donut Man",
+            "location": "915 E Route 66, Glendora, CA 91740",
+            "latitude": 34.136,
+            "longitude": -117.882,
+            "category": "Restaurant"
+          },
+          "date_time": "12:30 PM - 1:30 PM",
+          "weather_info": "Clear, 55 \u00b0F",
+          "driving_info": "30 min drive from Santa Monica Pier to The Donut Man.",
+          "description": "Famous for its fresh fruit-filled donuts.",
+          "category": "Restaurant",
+          "why_its_suitable": "A sweet treat for the family after a fun morning.",
+          "reviews": [
+            "Best donuts ever!",
+            "A must-try."
+          ],
+          "rating": 4.8,
+          "cost": 10.0,
+          "average_duration": 1.0
+        },
+        {
+          "activity": {
+            "name": "Hollywood Bowl",
+            "location": "The BOWL Store, Odin Path, Whitley Heights Historic District, Los Angeles County, California, 90068, United States",
+            "latitude": 34.11279,
+            "longitude": -118.33924,
+            "category": "Entertainment/Amusement Park"
+          },
+          "date_time": "02:00 PM - 05:00 PM",
+          "weather_info": "Clear, 55 \u00b0F",
+          "driving_info": "30 min drive from The Donut Man to Hollywood Bowl.",
+          "description": "An iconic outdoor amphitheater hosting concerts and events.",
+          "category": "Entertainment/Amusement Park",
+          "why_its_suitable": "Great for enjoying music in a beautiful setting.",
+          "reviews": [
+            "Amazing venue!",
+            "Great acoustics."
+          ],
+          "rating": 4.7,
+          "cost": 20.0,
+          "average_duration": 3.0
+        },
+        {
+          "activity": {
+            "name": "Dinner at Loews Hollywood Hotel",
+            "location": "1755 N Highland Ave, Los Angeles, CA 90028",
+            "latitude": 34.101,
+            "longitude": -118.34,
+            "category": "Restaurant"
+          },
+          "date_time": "06:00 PM - 08:00 PM",
+          "weather_info": "Clear, 60 \u00b0F",
+          "driving_info": "15 min drive from Hollywood Bowl to Loews Hollywood Hotel.",
+          "description": "A stylish restaurant offering a diverse menu with stunning views.",
+          "category": "Restaurant",
+          "why_its_suitable": "Perfect for a relaxing dinner to end the trip.",
+          "reviews": [
+            "Fantastic food!",
+            "Great service."
+          ],
+          "rating": 4.6,
+          "cost": 40.0,
+          "average_duration": 2.0
+        }
+      ],
+      "return_to_hotel_driving_info": "30 min drive back to West Covina.",
+      "packing_list": [
+        "Comfortable shoes",
+        "Sunscreen",
+        "Light jacket",
+        "Camera"
+      ]
+    }
+  ]
+}

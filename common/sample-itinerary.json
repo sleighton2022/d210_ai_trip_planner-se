@@ -1,0 +1,402 @@
+{
+  "name": "Recommended Family-Friendly Activities in Los Angeles",
+  "user_preference": {
+    "destination": "Los Angeles, CA",
+    "start_date": "02-17-2025",
+    "end_date": "02-20-2025",
+    "interests": [
+      "Entertainment/Amusement Park",
+      "Zoo",
+      "Museum"
+    ],
+    "hotel_location": "West Covina, CA",
+    "optimization_options": {
+      "by_weather": true,
+      "by_traffic": true,
+      "by_family_friendly": true,
+      "by_safety": true,
+      "by_cost": false,
+      "min_rating": 0.0
+    }
+  },
+  "day_plans": [
+    {
+      "date_of_the_day": "02-17-2025",
+      "theme_of_the_day": "Adventure at Universal Studios",
+      "activity_details": [
+        {
+          "activity": {
+            "name": "Universal Studios Hollywood",
+            "location": "Universal Studios Hollywood, 100 Universal City Plaza, Universal City, CA 91608",
+            "latitude": 34.13812,
+            "longitude": -118.35338,
+            "category": "Entertainment/Amusement Park"
+          },
+          "date_time": "08:00 AM - 06:00 PM",
+          "weather_info": "Cloudy, 54 \u00b0F",
+          "driving_info": "30 minutes from West Covina to Universal Studios.",
+          "description": "A thrilling theme park featuring rides and attractions based on popular movies.",
+          "category": "Entertainment/Amusement Park",
+          "why_its_suitable": "Perfect for families with kids who love movies and adventure.",
+          "reviews": [
+            "Amazing rides!",
+            "Great for all ages."
+          ],
+          "rating": 4.5,
+          "cost": 120.0,
+          "average_duration": 10.0
+        },
+        {
+          "activity": {
+            "name": "Lunch at Bubba Gump Shrimp Co.",
+            "location": "Universal City, CA 91608",
+            "latitude": 34.13812,
+            "longitude": -118.35338,
+            "category": "Restaurant"
+          },
+          "date_time": "12:00 PM - 1:00 PM",
+          "weather_info": "Cloudy, 54 \u00b0F",
+          "driving_info": "Located within Universal Studios.",
+          "description": "Casual dining with a seafood focus, themed around the movie 'Forrest Gump'.",
+          "category": "Restaurant",
+          "why_its_suitable": "Family-friendly atmosphere with a fun theme.",
+          "reviews": [
+            "Great seafood!",
+            "Fun decor."
+          ],
+          "rating": 4.0,
+          "cost": 15.0,
+          "average_duration": 1.0
+        },
+        {
+          "activity": {
+            "name": "Dinner at The Griddle Cafe",
+            "location": "7916 Sunset Blvd, Los Angeles, CA 90046",
+            "latitude": 34.0901,
+            "longitude": -118.3672,
+            "category": "Restaurant"
+          },
+          "date_time": "06:30 PM - 08:00 PM",
+          "weather_info": "Clear, 57 \u00b0F",
+          "driving_info": "20 minutes from Universal Studios.",
+          "description": "Famous for oversized pancakes and a variety of breakfast options served all day.",
+          "category": "Restaurant",
+          "why_its_suitable": "Great for families looking for a hearty meal after a long day.",
+          "reviews": [
+            "Best pancakes ever!",
+            "Huge portions."
+          ],
+          "rating": 4.5,
+          "cost": 20.0,
+          "average_duration": 1.5
+        }
+      ],
+      "return_to_hotel_driving_info": "30 minutes back to West Covina.",
+      "packing_list": [
+        "Comfortable shoes",
+        "Sunscreen",
+        "Light jacket"
+      ]
+    },
+    {
+      "date_of_the_day": "02-18-2025",
+      "theme_of_the_day": "Exploring Museums",
+      "activity_details": [
+        {
+          "activity": {
+            "name": "California Science Center",
+            "location": "700 Exposition Park Drive, Los Angeles, CA 90037",
+            "latitude": 34.01587,
+            "longitude": -118.28611,
+            "category": "Museum"
+          },
+          "date_time": "08:00 AM - 12:00 PM",
+          "weather_info": "Sunny, 53 \u00b0F",
+          "driving_info": "30 minutes from West Covina.",
+          "description": "An interactive science museum featuring hands-on exhibits and an IMAX theater.",
+          "category": "Museum",
+          "why_its_suitable": "Educational and fun for kids and adults alike.",
+          "reviews": [
+            "Great for kids!",
+            "Very informative."
+          ],
+          "rating": 4.7,
+          "cost": 0.0,
+          "average_duration": 4.0
+        },
+        {
+          "activity": {
+            "name": "Lunch at Philippe the Original",
+            "location": "1001 N Alameda St, Los Angeles, CA 90012",
+            "latitude": 34.0522,
+            "longitude": -118.2365,
+            "category": "Restaurant"
+          },
+          "date_time": "12:30 PM - 1:30 PM",
+          "weather_info": "Sunny, 53 \u00b0F",
+          "driving_info": "10 minutes from California Science Center.",
+          "description": "Famous for its French dip sandwiches and a casual dining experience.",
+          "category": "Restaurant",
+          "why_its_suitable": "Quick and delicious meal for families.",
+          "reviews": [
+            "Best French dip!",
+            "Quick service."
+          ],
+          "rating": 4.5,
+          "cost": 10.0,
+          "average_duration": 1.0
+        },
+        {
+          "activity": {
+            "name": "Los Angeles County Museum of Art",
+            "location": "5905 Wilshire Blvd, Los Angeles, CA 90036",
+            "latitude": 34.06393,
+            "longitude": -118.35923,
+            "category": "Museum"
+          },
+          "date_time": "02:00 PM - 06:00 PM",
+          "weather_info": "Partly Cloudy, 52 \u00b0F",
+          "driving_info": "15 minutes from Philippe the Original.",
+          "description": "The largest art museum in the west, featuring a diverse collection of art.",
+          "category": "Museum",
+          "why_its_suitable": "Inspires creativity and appreciation for art in children.",
+          "reviews": [
+            "Incredible collection!",
+            "Beautiful architecture."
+          ],
+          "rating": 4.6,
+          "cost": 25.0,
+          "average_duration": 4.0
+        },
+        {
+          "activity": {
+            "name": "Dinner at El Compadre",
+            "location": "Los Angeles, CA",
+            "latitude": 34.0,
+            "longitude": -118.5,
+            "category": "Restaurant"
+          },
+          "date_time": "06:30 PM - 08:00 PM",
+          "weather_info": "Clear, 61 \u00b0F",
+          "driving_info": "20 minutes from LACMA.",
+          "description": "A vibrant Mexican restaurant known for its delicious food and lively atmosphere.",
+          "category": "Restaurant",
+          "why_its_suitable": "Family-friendly with a fun vibe.",
+          "reviews": [
+            "Great margaritas!",
+            "Delicious food."
+          ],
+          "rating": 4.4,
+          "cost": 18.0,
+          "average_duration": 1.5
+        }
+      ],
+      "return_to_hotel_driving_info": "30 minutes back to West Covina.",
+      "packing_list": [
+        "Comfortable shoes",
+        "Light jacket",
+        "Camera"
+      ]
+    },
+    {
+      "date_of_the_day": "02-19-2025",
+      "theme_of_the_day": "Zoo and Nature",
+      "activity_details": [
+        {
+          "activity": {
+            "name": "Los Angeles Zoo",
+            "location": "5333 Zoo Dr, Los Angeles, CA 90027",
+            "latitude": 34.14861,
+            "longitude": -118.28403,
+            "category": "Zoo"
+          },
+          "date_time": "08:00 AM - 12:00 PM",
+          "weather_info": "Sunny, 51 \u00b0F",
+          "driving_info": "30 minutes from West Covina.",
+          "description": "Home to over 1,400 animals, the zoo offers a fun and educational experience.",
+          "category": "Zoo",
+          "why_its_suitable": "Great for kids to learn about wildlife.",
+          "reviews": [
+            "Fun for the whole family!",
+            "Well-kept exhibits."
+          ],
+          "rating": 4.5,
+          "cost": 22.0,
+          "average_duration": 4.0
+        },
+        {
+          "activity": {
+            "name": "Lunch at Denny's",
+            "location": "Los Angeles, CA",
+            "latitude": 34.0,
+            "longitude": -118.5,
+            "category": "Restaurant"
+          },
+          "date_time": "12:30 PM - 1:30 PM",
+          "weather_info": "Sunny, 51 \u00b0F",
+          "driving_info": "10 minutes from the zoo.",
+          "description": "Classic diner chain known for its breakfast and comfort food.",
+          "category": "Restaurant",
+          "why_its_suitable": "Family-friendly with a variety of options.",
+          "reviews": [
+            "Good breakfast!",
+            "Quick service."
+          ],
+          "rating": 4.0,
+          "cost": 12.0,
+          "average_duration": 1.0
+        },
+        {
+          "activity": {
+            "name": "Griffith Observatory",
+            "location": "2800 E Observatory Rd, Los Angeles, CA 90027",
+            "latitude": 34.11862,
+            "longitude": -118.30035,
+            "category": "Museum"
+          },
+          "date_time": "02:00 PM - 06:00 PM",
+          "weather_info": "Clear, 62 \u00b0F",
+          "driving_info": "15 minutes from Denny's.",
+          "description": "Offers stunning views of the city and educational exhibits about space.",
+          "category": "Museum",
+          "why_its_suitable": "Inspires curiosity about the universe in children.",
+          "reviews": [
+            "Amazing views!",
+            "Great exhibits."
+          ],
+          "rating": 4.8,
+          "cost": 0.0,
+          "average_duration": 4.0
+        },
+        {
+          "activity": {
+            "name": "Dinner at In-N-Out Burger",
+            "location": "700 W Carson St, Torrance, CA 90502",
+            "latitude": 33.8358,
+            "longitude": -118.3406,
+            "category": "Restaurant"
+          },
+          "date_time": "06:30 PM - 08:00 PM",
+          "weather_info": "Clear, 69 \u00b0F",
+          "driving_info": "30 minutes from Griffith Observatory.",
+          "description": "Famous for its burgers and fries, a must-try in California.",
+          "category": "Restaurant",
+          "why_its_suitable": "Quick and delicious meal for families.",
+          "reviews": [
+            "Best burgers!",
+            "Fast service."
+          ],
+          "rating": 4.7,
+          "cost": 10.0,
+          "average_duration": 1.5
+        }
+      ],
+      "return_to_hotel_driving_info": "30 minutes back to West Covina.",
+      "packing_list": [
+        "Comfortable shoes",
+        "Sunscreen",
+        "Light jacket"
+      ]
+    },
+    {
+      "date_of_the_day": "02-20-2025",
+      "theme_of_the_day": "Art and Culture",
+      "activity_details": [
+        {
+          "activity": {
+            "name": "The Getty",
+            "location": "1200 Getty Center Dr, Los Angeles, CA 90049",
+            "latitude": 34.01945,
+            "longitude": -118.474205,
+            "category": "Museum"
+          },
+          "date_time": "08:00 AM - 12:00 PM",
+          "weather_info": "Mainly Sunny, 55 \u00b0F",
+          "driving_info": "30 minutes from West Covina.",
+          "description": "An art museum with stunning architecture and beautiful gardens.",
+          "category": "Museum",
+          "why_its_suitable": "Encourages appreciation for art and nature.",
+          "reviews": [
+            "Beautiful place!",
+            "Great art collection."
+          ],
+          "rating": 4.9,
+          "cost": 0.0,
+          "average_duration": 4.0
+        },
+        {
+          "activity": {
+            "name": "Lunch at Salt & Straw",
+            "location": "Downtown Los Angeles, CA",
+            "latitude": 34.0,
+            "longitude": -118.5,
+            "category": "Restaurant"
+          },
+          "date_time": "12:30 PM - 1:30 PM",
+          "weather_info": "Clear, 61 \u00b0F",
+          "driving_info": "20 minutes from The Getty.",
+          "description": "Artisan ice cream shop known for unique flavors.",
+          "category": "Restaurant",
+          "why_its_suitable": "Fun treat for the family after a museum visit.",
+          "reviews": [
+            "Unique flavors!",
+            "Delicious ice cream."
+          ],
+          "rating": 4.8,
+          "cost": 8.0,
+          "average_duration": 1.0
+        },
+        {
+          "activity": {
+            "name": "The Broad",
+            "location": "221 S Grand Ave, Los Angeles, CA 90012",
+            "latitude": 34.05447,
+            "longitude": -118.25056,
+            "category": "Museum"
+          },
+          "date_time": "02:00 PM - 06:00 PM",
+          "weather_info": "Clear, 63 \u00b0F",
+          "driving_info": "10 minutes from Salt & Straw.",
+          "description": "Contemporary art museum with a vast collection of modern art.",
+          "category": "Museum",
+          "why_its_suitable": "Engaging exhibits that appeal to all ages.",
+          "reviews": [
+            "Incredible collection!",
+            "Must-see in LA."
+          ],
+          "rating": 4.7,
+          "cost": 0.0,
+          "average_duration": 4.0
+        },
+        {
+          "activity": {
+            "name": "Dinner at Pampas Grill",
+            "location": "Los Angeles, CA",
+            "latitude": 34.0,
+            "longitude": -118.5,
+            "category": "Restaurant"
+          },
+          "date_time": "06:30 PM - 08:00 PM",
+          "weather_info": "Clear, 69 \u00b0F",
+          "driving_info": "20 minutes from The Broad.",
+          "description": "Brazilian steakhouse offering a variety of grilled meats.",
+          "category": "Restaurant",
+          "why_its_suitable": "Great for families who enjoy a hearty meal.",
+          "reviews": [
+            "Delicious meats!",
+            "Great service."
+          ],
+          "rating": 4.6,
+          "cost": 30.0,
+          "average_duration": 1.5
+        }
+      ],
+      "return_to_hotel_driving_info": "30 minutes back to West Covina.",
+      "packing_list": [
+        "Comfortable shoes",
+        "Light jacket",
+        "Camera"
+      ]
+    }
+  ]
+}

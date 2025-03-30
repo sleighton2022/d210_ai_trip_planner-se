@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backendend-ingress-service 
+spec:
+  type: LoadBalancer  
+  selector:
+    app: backend  # Select pods with the label "app: python-api"
+  ports:
+  - protocol: TCP
+    port: 8000  # The port that the service exposes
+    targetPort: 8000  # The port that the pods are listening on

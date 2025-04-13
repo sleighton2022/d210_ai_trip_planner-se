@@ -2,52 +2,16 @@
 ###########################################################################
 ## Integration between FastAPI and RtAiTripPlanner (crewAI) starts here ##
 ## TODO: 
-## 1. Create a common directory
-## 2. Move agents/src/rt_ai_trip_planner/model.py to common directory
-## 3. Update imports reference to common directory
-## 4. Refactor to keep only one generate_itinerary function
 ###########################################################################
 from fastapi import FastAPI
-app = FastAPI()
 import os
-print(f"Current directory: {os.getcwd()}")
-
 import sys
-# sys.path.append('/home/cng/labs/ucb/d210_ai_trip_planner-main/agents/src/rt_ai_trip_planner')
-# sys.path.append('/home/cng/labs/ucb/d210_ai_trip_planner-main/agents/src')
-# sys.path.append('/home/cng/labs/ucb/d210_ai_trip_planner-main/agents')
-#sys.path.append('./agents/src/rt_ai_trip_planner')
-#sys.path.append('./agents/src')
+app = FastAPI()
+
+sys.path.append('./agents/src/rt_ai_trip_planner')
+sys.path.append('./agents/src')
 # sys.path.append('./agents')
-#sys.path.append('./common')
-
-
-# --- Start of Robust Path Calculation ---
-
-# Get the absolute path of the directory containing the current script (main.py)
-# Example: /home/sleighton/ds210/d210_ai_trip_planner/backend
-script_dir = os.path.dirname(os.path.abspath(__file__))
-
-# Navigate up one level from the script's directory to find the project root.
-# Example: /home/sleighton/ds210/d210_ai_trip_planner
-project_root = os.path.abspath(os.path.join(script_dir, '..'))
-
-# Construct the absolute path to the 'common' directory under the project root.
-# Example: /home/sleighton/ds210/d210_ai_trip_planner/common
-common_path = os.path.join(project_root, 'common')
-agent_path = os.path.join(project_root, 'agents')
-
-
-# Add the 'common' directory to the Python path if it's not already there.
-if common_path not in sys.path:
-    sys.path.append(common_path)
-
-if agent_path not in sys.path:
-    agent_src_path = agent_path + "/src"
-    agent_src_rt_path = agent_src_path + "rt_ai_trip_planner"
-    sys.path.append(agent_src_path)
-    sys.path.append(agent_src_rt_path)
-
+sys.path.append('./common')
 
 from model import UserPreference, Itinerary, OptimizationOptions
 from agents.src.rt_ai_trip_planner.main import invoke_ai_agents
@@ -55,6 +19,8 @@ from agents.src.rt_ai_trip_planner.main import invoke_ai_agents
 import json
 import dotenv
 from dotenv import load_dotenv
+import time
+import asyncio
 
 load_dotenv(dotenv_path='./agents/.env')
 for i in dotenv.dotenv_values():
@@ -65,14 +31,16 @@ for i in dotenv.dotenv_values():
 def generate_itinerary_v2(request_payload: dict = None):
     # testing for UI improvements
     # ---------------------------
-    # print("Backend Payload", request_payload)
+    # print('async call running')
+    # time.sleep(20)
     # if (request_payload):
     #     with open("./common/sample-itinerary.json", "r") as file:
     #         itinerary = json.load(file)
     # return itinerary
+
     # ---------------------------
-    # print(request_payload)
-    
+    #print("REQUEST PAYLOAD",request_payload)
+
     optimizations = request_payload["optimized_options"]
 
     if (request_payload):
@@ -97,7 +65,7 @@ def generate_itinerary_v2(request_payload: dict = None):
             destination='Los Angeles, CA',
             start_date='02-15-2025',
             end_date='02-20-2025',
-            interests=['museums', 'beaches'],
+            interests=['museum','tourist_attraction'],
             hotel_location='West Covina, CA',
             optimization_options=OptimizationOptions(
                 by_weather = True,

@@ -2,6 +2,8 @@ import pandas as pd
 from geopy.geocoders import Nominatim
 from geopy.point import Point
 
+from ..tools.weather_tool import WeatherOpenMeteoSearchTool
+
 
 geolocator = Nominatim(user_agent="rt-trip-planner")
 
@@ -31,6 +33,7 @@ class GeocodeUtils:
         df.to_csv("../../data/MVP_Data.csv", index=False)
 
     @staticmethod
-    def get_lat_lon(address: str) -> tuple:
-        code = geolocator.geocode(address)
-        return code.latitude, code.longitude
+    def get_lat_lon(location: str) -> tuple:
+        # code = geolocator.geocode(location)
+        # return code.latitude, code.longitude
+        return WeatherOpenMeteoSearchTool.get_lat_long(location)

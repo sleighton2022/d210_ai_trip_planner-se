@@ -30,6 +30,10 @@ class Activity(BaseModel):
     latitude: float = Field(..., description="Latitude of the location")
     longitude: float = Field(..., description="Longitude of the location")
     category: str = Field(..., description="Category of the activity")
+    rating: Optional[float] = Field(description="Rating of the activity", default=0.0)
+    regular_opening_hours: Optional[str] = Field(description="Regular opening hours of the activity", default="N/A")
+    business_status: Optional[str] = Field(description="Business status of the activity", default="N/A")
+    description: Optional[str] = Field(description="Description of the activity including editorial summary", default="N/A")
 
 class ActivityDetail(BaseModel):
     activity: Activity = Field(..., description="Details of the activity including activity, date and time, weather and driving information")
@@ -45,11 +49,10 @@ class ActivityDetail(BaseModel):
     average_duration: Optional[float] = Field(..., description="Average duration of the activity")    
 
 class ActivityContainer(BaseModel):
-    '''A container for recommended activities based on user preference.'''
-    name: str = "Recommended Activities"
-    description: str = "This class contains the user's preferences for the trip and the list of activities based on these preferences."
+    '''A container for user preference and recommended activities based on the user preference.'''
+    name: str = "User Preference and Activities Container"
+    description: str = "This class contains the user's preferences for the trip and the list of activities recommended based on these preferences."
     user_preference: UserPreference = Field(..., description="User preference")
-    activity_names: List[str] = Field(..., description="List of activity names")
     activities: List[Activity] = Field(..., description="List of recommended activities based on user preference")
 
 class Restaurant(Activity):
@@ -59,6 +62,10 @@ class Restaurant(Activity):
     longitude: float = Field(..., description="Longitude of the restaurant")    
     category: str = "Dining"
     cuisine: str = Field(..., description="Cuisine of the restaurant")
+
+class ActivityNearbyRestaurantAssocs(BaseModel):
+    activity_name: str = Field(..., description="Name of the activity")
+    nearby_restaurant: Restaurant = Field(..., description="Details of the nearby restaurant")
 
 
 ####################################################################################################
@@ -85,3 +92,23 @@ class Itinerary(BaseModel):
   name: str = Field(..., description="Name of the itinerary, something funny")
   user_preference: UserPreference = Field(..., description="User preference")
   day_plans: List[DayPlan] = Field(..., description="List of day plans")
+
+
+####################################################################################################
+# Define the route planning input class.
+####################################################################################################
+class RoutePlanningInput(BaseModel):
+    user_preference: UserPreference = Field(..., description="User preference")
+    recommended_activities: List[Activity] = Field(..., description="List of recommended activities")
+    activity_to_restaurant_assocs: List[ActivityNearbyRestaurantAssocs] = Field(..., description="List of associations between activities and nearby restaurants")
+    weather_forecasts: List[WeatherDetails] = Field(..., description="List of weather forecasts")
+
+class RecommendedActivitiesContainer(BaseModel):
+    user_preference: UserPreference = Field(..., description="User preference")
+    recommended_activities: List[Activity] = Field(..., description="List of recommended activities")
+
+class ActivityToRestaurantAssocsContainer(BaseModel):
+    activity_to_restaurant_assocs: List[ActivityNearbyRestaurantAssocs] = Field(..., description="List of associations between activities and nearby restaurants")
+
+class WeatherForecastsContainer(BaseModel):
+    weather_forecasts: List[WeatherDetails] = Field(..., description="List of weather forecasts")

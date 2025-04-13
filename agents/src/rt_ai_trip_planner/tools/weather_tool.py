@@ -10,7 +10,7 @@ import requests_cache
 import pandas as pd
 from retry_requests import retry
 
-from rt_ai_trip_planner.model import WeatherDetails
+from ..model import WeatherDetails, WeatherForecastsContainer
 import time
 
 
@@ -56,6 +56,7 @@ POPULAR_CITIES_LAT_LONG = {
 WMO_WEATHER_CODES = {}
 LOOKUP_PATHS = [
     ".",
+    "..",
     "../..",
     "../../..",
 ]
@@ -81,28 +82,29 @@ class WeatherOpenMeteoSearchToolInput(BaseModel):
 
 # This is a custom tool that access the Open-Meteo API for weather forecasts.
 class WeatherOpenMeteoSearchTool(BaseTool):
-    name: str = "Call the Open-Meteo API for weather forecasts."
+    name: str = "Open-Meteo API Weather Forecaster."
     description: str = (
         "A tool for accessing the Open-Meteo Weather Forecast API for weather forecasts that fall between start_date and end_date for a specified location. Note that the 'date' field in the result is in ISO format."
     )
     args_schema: Type[BaseModel] = WeatherOpenMeteoSearchToolInput
     
-    def _run(self, location: str, start_date: str, end_date: str) -> list[WeatherDetails]:
+    def _run(self, location: str, start_date: str, end_date: str) -> str:
         """
         This method is called by the BaseTool.run() method. It is responsible for executing the tool's functionality.
         It gets weather forecast by latitude, longitude, start date, and end date.
         """
-        start_time = time.time()
-
         # Resolve the location to latitude and longitude.
-        latitude, longitude = self._get_lat_long(location)
+        start_time = time.time()
+        latitude, longitude = WeatherOpenMeteoSearchTool.get_lat_long(location)
+        print(f"[DEBUG] Fetching weather forcast in '{location}' at latitude: {latitude}, longitude: {longitude}")
 
         # Get weather forecast data.
-        weather_details = self.get_weather_forecast_as_list(latitude, longitude, start_date, end_date)
+        weather_forecasts = self.get_weather_forecast_as_list(latitude, longitude, start_date, end_date)        
 
-        end_time = time.time()
-        print(f"[INFO] Time taken for WeatherOpenMeteoSearchTool.run(): {end_time - start_time} seconds")
-        return weather_details
+        # Convert the object to a json string and return.
+        print(f"[INFO] Time taken for WeatherOpenMeteoSearchTool.run() to retrieve {len(weather_forecasts)} forcasts: {time.time()-start_time} seconds")
+        container = WeatherForecastsContainer(weather_forecasts=weather_forecasts)
+        return json.dumps(container, indent=2, default=lambda o: getattr(o, '__dict__', str(o)))        
 
     def get_weather_forecast_as_list(self, latitude: float, longitude: float, start_date: str, end_date: str) -> list[WeatherDetails]:
         """
@@ -112,14 +114,14 @@ class WeatherOpenMeteoSearchTool(BaseTool):
         hourly_data = self._get_weather_forecast(latitude, longitude, start_date, end_date)
 
         # Convert the data to a list of WeatherDetails objects.
-        weather_details_list = []
+        weather_forecasts_list = []
         for i in range(len(hourly_data["date"])):
             # Skip the data if the time is between 10:00 PM and 6:00 AM (outside of active hours).
             datetime = hourly_data["date"][i]
             if (datetime.hour < 6) or (datetime.hour > 22):
                 continue
 
-            weather_details = WeatherDetails(
+            weather_forecast = WeatherDetails(
                 date = (hourly_data["date"][i]).isoformat(timespec='minutes'),
                 temp = int(hourly_data["temperature_2m"][i]), # Convert temperature to int - Does not have to be very precise.                
                 code = hourly_data["weather_code"][i],
@@ -127,10 +129,10 @@ class WeatherOpenMeteoSearchTool(BaseTool):
             )
 
             # Enrich the weather description by appending the temperature and temperature unit.
-            weather_details.desc += f", {weather_details.temp} °F"
-            weather_details_list.append(weather_details)
+            weather_forecast.desc += f", {weather_forecast.temp} °F"
+            weather_forecasts_list.append(weather_forecast)
 
-        return weather_details_list
+        return weather_forecasts_list
     
     def get_weather_forecast_as_dataframe(self, latitude: float, longitude: float, start_date: str, end_date: str) -> pd.DataFrame:
         """
@@ -214,7 +216,8 @@ class WeatherOpenMeteoSearchTool(BaseTool):
 
         return hourly_data
     
-    def _get_lat_long(self, location: str, verbose=False) -> tuple[float, float]:
+    @staticmethod
+    def get_lat_long(location: str, verbose=False) -> tuple[float, float]:
         """
         Get the latitude and longitude of a location using the Open-Meteo API.
         """

@@ -1,9 +1,10 @@
 
 from datetime import datetime
 import json
+import os
 
-from rt_ai_trip_planner.model import OptimizationOptions, UserPreference
-from rt_ai_trip_planner.utils.reqs_builder_utils import TripRequirementsBuilderUtils
+from ..model import OptimizationOptions, UserPreference
+from .reqs_builder_utils import TripRequirementsBuilderUtils
 
 
 class CrewInputOutputUtils:
@@ -24,7 +25,7 @@ class CrewInputOutputUtils:
             destination='Los Angeles, CA', # 'Los Angeles, CA', 
             start_date='02-17-2025',
             end_date='02-20-2025',
-            interests=['Entertainment/Amusement Park', 'Zoo', 'Museum'], # ['zoo', 'museums', 'beaches'],
+            interests=['tourist_attraction', 'zoo', 'museums'], # ['zoo', 'museums', 'beaches'],
             hotel_location='West Covina, CA',
             optimization_options=OptimizationOptions(
                 by_weather = True,
@@ -32,7 +33,7 @@ class CrewInputOutputUtils:
                 by_family_friendly = True,
                 by_safety = True,
                 by_cost=False,
-                min_rating=0.0
+                min_rating=3.0
             )
         )
         return user_preference
@@ -47,6 +48,9 @@ class CrewInputOutputUtils:
         end_date = datetime.strptime(user_preference.end_date, "%m-%d-%Y")
         trip_duration = (end_date - start_date).days
 
+        # Number of activities to be selected from - assume 4 activities per day.
+        num_activities = 4 * trip_duration
+
         # Prepare the builder instance to construct trip requirements.
         builder = TripRequirementsBuilderUtils(user_preference)
 
@@ -55,14 +59,18 @@ class CrewInputOutputUtils:
             json.dumps(user_preference, default=lambda o: getattr(o, '__dict__', str(o)))
         )
 
+        # Flatten the optimization_options dictionary.
+        inputs = {**inputs, **inputs['optimization_options']}
+        del inputs['optimization_options']
+
         # Decorate the inputs with additional information.
         inputs.update({
             'trip_duration': trip_duration,
+            'num_activities': num_activities,
             'activity_requirements': builder.activity_requirements(),
             'traffic_requirements': builder.traffic_requirements(), 
             'weather_requirements': builder.weather_requirements(),
             'restaurant_requirements': builder.restaurant_requirements(),
-            'activity_names': [],
             'activities': []
         })
 
@@ -72,7 +80,7 @@ class CrewInputOutputUtils:
         return inputs
     
     @staticmethod
-    def inspect_crew_output(crew_output, verbose=False):
+    def inspect_crew_output(crew_output, verbose=False, output_file_name=None):
         """
         Inspect the crew output.
         """
@@ -88,3 +96,42 @@ class CrewInputOutputUtils:
         print(f"Token Usage: {crew_output.token_usage}")    
 
         print("-" * 30)
+
+        # Write the output to a file.
+        if output_file_name:
+            output_file_path = os.path.join(os.getcwd(), output_file_name)
+            print(f"\n[INFO] Writing the crew output to {output_file_path}...\n")
+            with open(output_file_path, 'w') as file:
+                json.dump(crew_output.json_dict, file, indent=2)
+        
+    @staticmethod
+    def find_folder_path(folder_name: str) -> str:
+        LOOKUP_PATHS = [
+            ".",
+            "..",
+            "../..",
+            "../../..",
+        ]
+        for p in LOOKUP_PATHS:
+            file_path = f"{p}/{folder_name}"
+            print(f"[INFO] Checking path at: {file_path}...")
+
+            # Check if the directory exists.
+            if os.path.exists(file_path):
+                print(f"[INFO] Found directory at: {file_path}")
+                return file_path
+            
+        # If we reach here, it is an error. Raise an assert error.
+        assert False, "Directory not found!"
+
+    @staticmethod
+    def write_to_file(folder_name: str, file_name: str, data: dict):
+        """
+        Write the data to a file.
+        """
+        target_folder_path = CrewInputOutputUtils.find_folder_path(folder_name)
+        file_path = f'{target_folder_path}/{file_name}'
+        with open(f'{file_path}', 'w') as file:
+            file.write(data)
+
+        print(f"[DEBUG] Contents '{data[:50]}...' saved to {file_path}")

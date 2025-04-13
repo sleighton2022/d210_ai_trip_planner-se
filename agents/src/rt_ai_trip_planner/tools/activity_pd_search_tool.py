@@ -1,11 +1,11 @@
+import json
 import pandas as pd
 from crewai.tools import BaseTool
 from typing import List, Tuple, Type
 from pydantic import BaseModel, Field
 
-from rt_ai_trip_planner.model import Activity, OptimizationOptions, ActivityContainer, UserPreference
+from ..model import Activity, OptimizationOptions, ActivityContainer, UserPreference
 
-import os
 # name,main_category,overarching_category,rating,reviews,normalized_value,city,latitude,longitude
 # destination='Los Angeles, CA', interests=['Theme park', 'zoo', 'museums']
 
@@ -19,8 +19,7 @@ LOOKUP_PATHS = [
 ]
 for p in LOOKUP_PATHS:
     try:
-        print("Current Working Directory:", os.getcwd())
-        file_path = f"{p}/agents/data/MVP_Data.csv"
+        file_path = f"{p}/data/MVP_Data.csv"
         print(f"[INFO] Loading DataFrame from: {file_path}...")
         ACTIVITY_DF = pd.read_csv(file_path)
         print(f"[INFO] Loaded DataFrame from: {file_path}")
@@ -48,7 +47,7 @@ class ActivityDataFrameSearchTool(BaseTool):
     )
     args_schema: Type[BaseModel] = ActivityDataFrameSearchToolInput
 
-    def _run(self, destination: str, start_date: str, end_date: str, interests: List[str], hotel_location: str, optimization_options: dict) -> ActivityContainer:
+    def _run(self, destination: str, start_date: str, end_date: str, interests: List[str], hotel_location: str, optimization_options: dict) -> str:
         """
         This method is called by the BaseTool.run() method. It is responsible for executing the tool's functionality.
         Search a Pandas DataFrame for activities that match the user preferences.
@@ -73,10 +72,9 @@ class ActivityDataFrameSearchTool(BaseTool):
         # Search Database for activities that match the user_preference.
         activities = self._search(destination, interests)
 
-        # Create a list of activity names.
-        activity_names = [activity.name for activity in activities]
-
-        return ActivityContainer(user_preference=user_preference, activity_names=activity_names, activities=activities)    
+        # return ActivityContainer(user_preference=user_preference, activities=activities)    
+        # Convert the object to a json string and return.
+        return json.dumps(activities, indent=2, default=lambda o: getattr(o, '__dict__', str(o)))
 
     def _search(self, location: str, interest: List[str]) -> list[Activity]:
         """Search the DataFrame for activities that match the location and interest."""
@@ -107,6 +105,7 @@ class ActivityDataFrameSearchTool(BaseTool):
             )
             activities.append(activity)
 
+        print(f"[DEBUG] Found {len(activities)} activities that match city: {city}, categories: {categories}")
         return activities
     
     def _map_search_keys(self, location: str, interest: List[str]) -> Tuple[str, List[str]]:
